@@ -1,0 +1,710 @@
+String Manipulation Assignment
+BY : MUHAMMAD ANAS NAEEM
+
+Task-1 Visual Basic
+Sub Main()
+        Dim alphabets, str1 As String
+        Dim i As Integer
+        Dim isPangram As Boolean
+        Dim nextChar As Char
+
+        alphabets = "abcdefghijlmnopqrstuvwxyz"
+        i = 0
+        isPangram = True
+        nextChar = ""
+
+        Console.Write("Enter string: ")
+        str1 = Console.ReadLine
+        str1 = LCase(str1)
+
+        For i = 1 To Len(alphabets)
+            nextChar = Mid(alphabets, i, 1)
+            If InStr(str1, nextChar) = 0 Then
+                isPangram = False
+            End If
+        Next i
+
+        If isPangram = True Then
+
+            Console.WriteLine("Input string is pangram.")
+        Else
+            Console.WriteLine("Input string is NOT a pangram.")
+        End If
+
+        Console.ReadKey()
+    End Sub
+
+Task-1 Psudocode
+        DECLARE alphabets, str1 As String
+        DECLARE i : Integer
+        DECLARE isPangram : Boolean
+        DECLARE nextChar : Char
+
+        alphabets ← "abcdefghijlmnopqrstuvwxyz"
+        i ← 0
+        isPangram ← True
+        nextChar ← "
+
+        OUTPUT"Enter string: "
+        INPUT str1
+        str1 ← LOWER(str1)
+
+FOR i ← 1 To LEN(alphabets)
+            nextChar ← MID(alphabets, i, 1)
+            IF LOCATE(str1, nextChar) ← 0 THEN
+                isPangram ← False
+            END IF
+        NEXT i
+
+IF isPangram ← True Then
+
+            OUTPUT"Input string is pangram."
+        ELSE
+            OUTPUT"Input string is NOT a pangram."
+        END IF
+
+
+Task-2 Visual Basic
+Sub Main()
+        'DECLARATION
+        Dim Str1, Str2, Str3, Character, Word As String
+        Dim Count As Integer
+
+        'Initialisation
+        Str1 = ""
+        Str2 = ""
+        Str3 = ""
+        Character = ""
+        Word = ""
+        Count = 0
+
+        'INPUT
+        Console.Write("Enter The String : ")
+        Str1 = Console.ReadLine
+        Console.Write("Enter Character To Remove: ")
+        Str2 = Console.ReadLine
+        Console.Write("Enter Character To Add: ")
+        Str3 = Console.ReadLine
+
+        'PROCESS
+         For Count = 1 To Len(Str1)
+            Character = Mid(Str1, Count, 1)
+            If Character <> Str2 Then
+                Word = Word & Character
+            Else
+                Character = Str3
+                Word = Word & Character
+
+            End If
+          Next Count
+        Console.WriteLine("Updated String: " & Word)
+
+        Console.ReadKey()
+
+    End Sub
+
+Task-2 Pseudocode
+
+        DECLARE Str1, Str2, Str3, Character, Word : String
+        DECLARE Count : Integer
+
+        Str1 ← ""
+        Str2 ← ""
+        Str3 ← ""
+        Character ← ""
+        Word ← ""
+        Count ← 0
+
+        OUTPUT"Enter a string: "
+        INPUT Str1
+        OUTPUT"Enter Character to Remove: "
+        INPUT Str2
+        OUTPUT"Enter Character to Add: "
+        INPUT Str3
+
+         FOR Count ← 1 To LEN(Str1)
+            Character ← MID(Str1, Count, 1)
+            IF Character <> Str2 Then
+                Word ← Word + Character
+            ELSE
+                Character ← Str3
+                Word ← Word + Character
+
+            END IF
+        NEXT Count
+
+        OUTPUT"Updated String: " + Word
+
+Task-3 Visual Basic
+Sub Main()
+        'DECLARATION
+        Dim Str1 As String
+        Dim Char1 As Char
+        Dim i, alphaCount, digitCount As Integer
+
+        'INITIALISATION
+        Str1 = ""
+        Char1 = ""
+        i = 0
+        alphaCount = 0
+        digitCount = 0
+
+        'INPUT
+        Console.Write("Enter string to process: ")
+        Str1 = Console.ReadLine
+
+        'PROCESS
+        For i = 1 To Len(Str1)
+            Char1 = Mid(Str1, i, 1)
+            If Char1 >= "A" And Char1 <= "Z" Then
+                alphaCount = alphaCount + 1
+            ElseIf Char1 >= "a" And Char1 <= "z" Then
+                alphaCount = alphaCount + 1
+            ElseIf Char1 >= "0" And Char1 <= "9" Then
+                digitCount = digitCount + 1
+            End If
+        Next
+
+        'OUTPUT
+        Console.WriteLine("Alphabets = " & alphaCount)
+        Console.WriteLine("Digits = " & digitCount)
+        Console.ReadKey()
+    End Sub
+
+Task-3 Pseudocode
+
+        'DECLARATION
+        DECLARE Str1 : String
+        DECLARE Char1 : Char
+        DECLARE i, alphaCount, digitCount : Integer
+
+        'INITIALISATION
+        Str1 ← ""
+        Char1 ← "
+        i ← 0
+        alphaCount ← 0
+        digitCount ← 0
+
+        'INPUT
+        OUTPUT"Enter string to process: "
+        INPUT Str1
+
+        'PROCESS
+        FOR i ← 1 To LEN(Str1)
+            Char1 ← MID(Str1, i, 1)
+            IF Char1 >= "A" AND Char1 <= "Z" THEN
+                alphaCount ← alphaCount + 1
+            ELSEIF Char1 >= "a" AND Char1 <= "z" THEN
+                alphaCount ← alphaCount + 1
+            ELSEIF Char1 >= "0" AND Char1 <= "9" THEN
+                digitCount ← digitCount + 1
+            END IF
+        NEXT
+
+        'OUTPUT
+        OUTPUT"Alphabets: " + alphaCount
+        OUTPUT"Digits: " + digitCount
+
+Task-4 Visual Basic
+Sub main()
+        Dim str1, str2, str3, GratestChar, space As String
+        Dim Char1, Char2 As Char
+        Dim i, count As Integer
+
+        str1 = ""
+        str2 = ""
+        str3 = ""
+        space = " "
+        Char1 = ""
+        Char2 = ""
+        GratestChar = ""
+        i = 0
+        count = 0
+
+        Console.Write("Enter string: ")
+        str1 = LCase(space & Console.ReadLine)
+
+        For i = 1 To Len(str1)
+            Char1 = Mid(str1, i, 1)
+            For count = 1 To Len(str1)
+                Char2 = Mid(str1, count, 1)
+                If Char2 = Char1 Then
+                    str2 = str2 + Char1
+                End If
+            Next
+            If InStr(GratestChar, Char1) = 0 Then
+                If Len(str3) < Len(str2) Then
+                    GratestChar = Char1
+                End If
+                If Len(str2) > Len(str3) Then
+                    str3 = str2
+                End If
+            End If
+            str2 = ""
+        Next
+        Console.WriteLine(" Most reoccering character is " & GratestChar)
+
+        Console.ReadKey()
+    End Sub
+
+Task-4 Pseudocode
+Sub main()
+        DECLARE str1, str2, str3, GratestChar, space : String
+        DECLARE Char1, Char2 : Char
+        DECLARE i, count : Integer
+
+        str1 ← ""
+        str2 ← ""
+        str3 ← ""
+        space ← " "
+        Char1 ← "
+        Char2 ← "
+        GratestChar ← "
+        i ← 0
+        count ← 0
+
+        OUTPUT"Enter string: "
+        INPUT str1
+        str1 = LOWER(str1)
+
+        FOR i ← 1 To LEN(str1)
+            Char1 ← MID(str1, i, 1)
+            FOR count ← 1 To LEN(str1)
+                Char2 ← MID(str1, count, 1)
+                IF Char2 ← Char1 THEN
+                    str2 ← str2 + Char1
+                END IF
+            NEXT
+            IF LOCATE(GratestChar, Char1) ← 0 THEN
+                IF LEN(str3) < LEN(str2) THEN
+                    GratestChar ← Char1
+                END IF
+                IF LEN(str2) > LEN(str3) THEN
+                    str3 ← str2
+                END IF
+            END IF
+          str2 = ""
+        NEXT
+        OUTPUT" Most reoccering character is " + GratestChar
+
+Task-5 Visual Basic
+Sub Main()
+        'DECLARATION
+        Dim Str1, Str2, Str3 As String
+        Dim i, count, num1 As Integer
+        Dim Char1, Char2 As Char
+
+        'INITIALISATION
+        Str1 = ""
+        Str2 = "AEIOU"
+        Str3 = ""
+        i = 0
+        num1 = 0
+        count = 0
+        Char1 = ""
+        Char2 = ""
+
+        'INPUT
+        Console.Write("Enter string to process: ")
+        Str1 = Console.ReadLine
+        Str1 = UCase(Str1)
+
+        'PROCESS
+        For i = 1 To Len(Str1)
+            Char1 = Mid(Str1, i, 1)
+            For count = 1 To Len(Str1)
+                Char2 = Mid(Str1, count, 1)
+                If Char2 = Char1 Then
+                    num1 = num1 + 1
+                End If
+            Next
+            If InStr(Str3, Char1) = 0 Then
+                Str3 = Str3 + Char1
+                If InStr(Str2, Char1) Then
+                    Console.WriteLine(Char1 & " = " & num1)
+                End If
+            End If
+            num1 = 0
+        Next
+
+    End Sub
+
+Task-5 Pseudocode
+
+Sub Main()
+        'DECLARATION
+        DECLARE Str1, Str2, Str3 : String
+        DECLARE i, count, num1 : Integer
+        DECLARE Char1, Char2 : Char
+
+        'INITIALISATION
+        Str1 ← ""
+        Str2 ← "AEIOU"
+        Str3 ← ""
+        i ← 0
+        num1 ← 0
+        count ← 0
+        Char1 ← "
+        Char2 ← "
+
+        'INPUT
+        OUTPUT"Enter string to process: "
+        INPUT Str1
+        Str1 ← UPPER(Str1)
+
+        'PROCESS
+        FOR i ← 1 To LEN(Str1)
+            Char1 ← MID(Str1, i, 1)
+            FOR count ← 1 To LEN(Str1)
+                Char2 ← MID(Str1, count, 1)
+                IF Char2 ← Char1 THEN
+                    num1 ← num1 + 1
+                END IF
+            NEXT
+            IF LOCATE(Str3, Char1) ← 0 THEN
+                Str3 ← Str3 + Char1
+                IF LOCATE(Str2, Char1) THEN
+                    OUTPUT Char1 + " = " + num1)
+                END IF
+            END IF
+            num1 ← 0
+        NEXT
+
+Task-6 Visual Basic
+Sub Main()
+        Dim count As Integer
+
+        count = 0
+
+
+        Console.Write("Enter The Amount Of Dounts: ")
+        count = Console.ReadLine()
+
+        If count < 10 Then
+            Console.WriteLine("Number Of Dounts: " & count)
+        Else
+            Console.WriteLine("Number Of Dounts: many")
+        End If
+    End Sub
+
+Task-6 Pseudocode
+
+        DECLARE count : Integer
+
+        count ← 0
+
+
+        OUTPUT"Enter The Amount Of Dounts: "
+        INPUT count
+
+        IF count < 10 Then
+            OUTPUT "Number Of Dounts: " + count
+        ELSE
+            OUTPUT "Number Of Dounts: many"
+        END IF
+
+Task-7 Visual Basic
+Sub Main()
+        Dim str1, str2, str3 As String
+
+        str1 = ""
+        str2 = ""
+        str3 = ""
+
+        Console.Write("Enter String To Process: ")
+        str1 = Console.ReadLine()
+
+        If Len(str1) > 2 Then
+            str2 = Left(str1, 2)
+            str3 = Right(str1, 2)
+            Console.WriteLine("Processed String: " & str2 & str3)
+        Else
+            Console.WriteLine("Processed String: " & str1)
+        End If
+    End Sub
+
+Task-7 Pseudocode
+
+        DECLARE str1, str2, str3 : String
+
+        str1 ← ""
+        str2 ← ""
+        str3 ← ""
+
+        OUTPUT "Enter String To Process: "
+        INPUT str1
+
+        IF LEN(str1) > 2 THEN
+            str2 ← LEFT(str1, 2)
+            str3 ← RIGHT(str1, 2)
+            OUTPUT "Processed String: " + str2 + str3)
+        ELSE
+            OUTPUT "Processed String: " + str1
+        END IF
+
+Task-8 Visual Basic
+Sub Main()
+        'DECLARATION
+        Dim Str1, Str2, Str3 As String
+        Dim Count, Letters As Integer
+        Dim Char1, Char2, Char3 As Char
+
+        'Initialisation
+        Str1 = ""
+        Str2 = ""
+        Str3 = "*"
+        Char1 = ""
+        Char2 = ""
+        Char3 = ""
+        Count = 0
+        Letters = 0
+
+        'INPUT
+        Console.Write("Enter The String To Process: ")
+        Str1 = LCase(Console.ReadLine)
+
+        'PROCESS
+        Char1 = Left(Str1, 1)
+        For Count = 1 To Len(Str1)
+                Char2 = Mid(Str1, Count, 1)
+            If Char2 = Char1 Then
+                Char2 = Str3
+
+            End If
+            Letters = Letters + 1
+            If Letters > 1 Then
+                Str2 = Str2 + Char2
+            End If
+
+        Next
+        Char3 = Char1
+
+        Console.WriteLine("Processed String: " & Char3 & Str2)
+
+        Console.ReadKey()
+
+    End Sub
+
+Task-8 Pseudocode
+Sub Main()
+        'DECLARATION
+        DECLARE Str1, Str2, Str3 : String
+        DECLARE Count, Letters : Integer
+        DECLARE Char1, Char2, Char3 : Char
+
+        'Initialisation
+        Str1 ← ""
+        Str2 ← ""
+        Str3 ← "*"
+        Char1 ← "
+        Char2 ← "
+        Char3 ← "
+        Count ← 0
+        Letters ← 0
+
+        'INPUT
+        OUTPUT"Enter The String To Process: "
+        INPUT Str1
+        Str1 ← LOWER(Str1)
+
+        'PROCESS
+        Char1 ← LEFT(Str1, 1)
+        FOR Count ← 1 To LEN(Str1)
+                Char2 ← MID(Str1, Count, 1)
+            IF Char2 ← Char1 THEN
+                Char2 ← Str3
+
+            END IF
+            Letters ← Letters + 1
+            IF Letters > 1 THEN
+                Str2 ← Str2 + Char2
+            END IF
+
+        NEXT
+        Char3 ← Char1
+
+        OUTPUT "Processed String: " + Char3 + Str2
+
+
+Task-9 Visual Basic
+Sub Main()
+        Dim Str1, Str2, Str3, Str4, Str5, Str6 As String
+
+        'Initialisation
+        Str1 = ""
+        Str2 = ""
+        Str3 = ""
+        Str4 = ""
+        Str5 = ""
+        Str6 = ""
+
+        'INPUT
+        Console.Write("Enter First String: ")
+        Str1 = Console.ReadLine
+        Console.Write("Enter Scond String: ")
+        Str2 = Console.ReadLine
+
+        'PROCESS
+        Str3 = Left(Str1, 2)
+        Str4 = Left(Str2, 2)
+        Str5 = Mid(Str1, 3, Len(Str1))
+        Str6 = Mid(Str2, 3, Len(Str2))
+
+        Console.WriteLine("First String: " & Str4 & Str5)
+        Console.WriteLine("Scond String: " & Str3 & Str6)
+
+        Console.ReadKey()
+
+    End Sub
+
+Task-9 Pseudocode
+Sub Main()
+        DECLARE Str1, Str2, Str3, Str4, Str5, Str6 : String
+
+        'Initialisation
+        Str1 ← ""
+        Str2 ← ""
+        Str3 ← ""
+        Str4 ← ""
+        Str5 ← ""
+        Str6 ← ""
+
+        'INPUT
+        OUTPUT "Enter First String: "
+        INPUT Str1
+        OUTPUT "Enter Scond String: "
+        INPUT Str2
+
+        'PROCESS
+        Str3 ← LEFT(Str1, 2)
+        Str4 ← LEFT(Str2, 2)
+        Str5 ← MID(Str1, 3, LEN(Str1))
+        Str6 ← MID(Str2, 3, LEN(Str2))
+
+        OUTPUT "First String: " + Str4 + Str5)
+        OUTPUT "Scond String: " + Str3 + Str6)
+
+   
+Task-10 Visual Basic
+Sub Main()
+
+        Dim Str1, Str2, Str3, Str4 As String
+
+        Str1 = ""
+        Str2 = "ing"
+        Str3 = "ly"
+        Str4 = ""
+
+        Console.Write("Enter String: ")
+        Str1 = Console.ReadLine()
+        Str4 = Right(Str1, 3)
+
+
+        If Len(Str1) >= 3 And Str4 <> Str2 Then
+            Console.WriteLine("Updated String: " & Str1 & Str2)
+        ElseIf Str4 = Str2 Then
+            Console.WriteLine("Updated String: " & Str1 & Str3)
+        Else
+            Console.WriteLine("String Was Very Short: " & Str1)
+        End If
+    End Sub
+
+Task-10 Pseudocode
+
+        DECLARE Str1, Str2, Str3, Str4 : String
+
+        Str1 ← ""
+        Str2 ← "ing"
+        Str3 ← "ly"
+        Str4 ← ""
+
+        OUTPUT "Enter String: "
+        INPUT Str1
+        Str4 ← RIGHT(Str1, 3)
+
+
+        IF LEN(Str1) >= 3 AND Str4 <> Str2 THEN
+            OUTPUT "Updated String: " + Str1 + Str2
+        ELSEIF Str4 = Str2 Then
+            OUTPUT "Updated String: " + Str1 + Str3
+        ELSE
+            OUTPUT "String Was Very Short: " + Str1
+        END IF
+
+Task-11 Visual Basic
+Sub Main()
+
+        Dim str1, str2 As String
+        Dim num1, num2 As String
+        Dim char1 As Char
+
+        str1 = ""
+        str2 = ""
+        char1 = ""
+        num1 = 0
+        num2 = 0
+
+        Console.Write("Enter string: ")
+        str1 = LCase(Console.ReadLine)
+        num1 = InStr(str1, "not")
+        num2 = InStr(str1, "bad")
+
+        If InStr(str1, "not") > 0 And InStr(str1, "bad") > 0 Then
+            If num2 > num1 Then
+                num2 = num2 + 3
+                num1 = num1 - 1
+                For i = 1 To Len(str1)
+                    char1 = Mid(str1, i, 1)
+                    If i > num1 And i < num2 Then
+                        If InStr(str2, "good") = 0 Then
+                            str2 = str2 + "good"
+                        End If
+                    Else
+                        str2 = str2 + char1
+                    End If
+                Next
+            End If
+        End If
+
+        Console.WriteLine("Updated String: " & str2)
+        Console.ReadKey()
+
+
+    End Sub
+
+Task-11 Pseudocode
+Sub Main()
+
+        DECLARE str1, str2 : String
+        DECLARE num1, num2 : String
+        DECLARE char1 : Char
+
+        str1 ← ""
+        str2 ← ""
+        char1 ← "
+        num1 ← 0
+        num2 ← 0
+
+        OUTPUT "Enter string: "
+        INPUT str1
+        num1 ← LOCATE(str1, "not")
+        num2 ← LOCATE(str1, "bad")
+
+        IF LOCATE(str1, "not") > 0 AND LOCATE(str1, "bad") > 0 THEN
+            IF num2 > num1 THEN
+                num2 ← num2 + 3
+                num1 ← num1 - 1
+                FOR i ← 1 To LEN(str1)
+                    char1 ← MID(str1, i, 1)
+                    IF i > num1 And i < num2 THEN
+                        IF LOCATE(str2, "good") = 0 THEN
+                            str2 ← str2 + "good"
+                        END IF
+                    ELSE
+                        str2 = str2 + char1
+                    END IF
+                NEXT
+            END IF
+        END IF
+
+        OUTPUT "Updated String: " + str2
