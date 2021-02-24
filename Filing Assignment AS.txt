@@ -1,0 +1,276 @@
+Filing Assignment
+By MUHAMMAD ANAS NAEEM
+
+Task-1.1 Visual Basic
+Sub Main()
+
+        Dim MemberId As Integer
+        Dim Name As String
+        Dim moreRecs As Char
+ 	moreRecs = "Y"
+
+        FileOpen(1, "G:\PracticeFile\sRec.txt", OpenMode.Output)
+
+        Do
+            Console.Write("Enter MemberId :")
+            MemberId = Console.ReadLine
+
+            Console.Write("Enter Member Name :")
+            Name = Console.ReadLine
+
+            WriteLine(1, MemberId)
+        WriteLine(1, Name)
+
+            Console.Write("Want to ad next record? Y/N: ")
+            moreRecs = Console.ReadLine
+        Loop Until moreRecs = N OR moreRecs = n
+
+        FileClose(1)
+
+        Console.ReadKey()
+
+    End Sub
+
+Task 1.1 Pseudocode
+
+DECLARE MemberID : INTEGER
+DECLARE NAME : STRING
+DECLARE moreRecs : BOOLEAN
+
+MemberID = 0
+Name = ""
+more = FALSE
+
+OPENFILE "MemberRec.txt" FOR OUTPUT
+REPEAT
+    OUTPUT "Enter Member ID: "
+    INPUT MemberID
+
+    OUTPUT "Enter Member Name: "
+    INPUT Name
+
+    WRITEFILE "MemberRec.txt", MemberID
+    WRITEFILE "MemberRec.txt", Name
+
+    OUTPUT "Do you want to add more records? (Y/N)" 
+    INPUT moreRecs
+UNTIL moreRecs = 'N' OR moreRecs = 'n' 
+CLOSEFILE "MemberRec.txt"
+
+Task-1.2 Visual Basic
+Sub Main()
+
+        Dim MemberID As Integer
+        Dim Name As String
+
+        FileOpen(1, "G:\PracticeFile\MemberRec.txt", OpenMode.Input)
+
+        While Not EOF(1)
+
+            Input(1, MemberID)
+            Input(1, Name)
+
+            Console.WriteLine("Member ID :" & MemberID)
+            Console.WriteLine("Member Name :" & Name)
+
+        End While
+
+    End Sub
+
+Task 1.2 Pseudocode
+
+DECLARE MemberID : INTEGER
+DECLARE Name : STRING
+
+OPENFILE "MemberRec.txt" FOR INPUT
+
+WHILE NOT EOF("MemberRec.txt")
+
+  READFILE "MemberRec.txt", MemberID
+  READFILE "MemberRec.txt", Name
+
+  OUTPUT "Member ID: ", MimberID
+  OUTPUT "Member name: ", Name
+
+ENDWHILE
+
+CLOSEFILE "MemberRec.txt"
+
+Task-1.3 Visual Basic
+Sub Main()
+
+        Dim MemberID, searchMemberID As Integer
+        Dim Name As String
+        Dim isFound As Boolean
+        isFound = False
+
+        Console.Write("Enter Member ID to search for :")
+        searchMemberID = Console.ReadLine
+        FileOpen(1, "G:\PracticeFile\MemberRec.txt", OpenMode.Input)
+
+        While Not EOF(1) And isFound = False
+            Input(1, MemberID)
+            Input(1, Name)
+
+            If MemberID = searchMemberID Then
+                isFound = True
+
+                Console.WriteLine("Member ID :" & MemberID)
+                Console.WriteLine("Member name :" & Name)
+            End If
+        End While
+        FileClose(1)
+
+        If isFound = False Then Console.WriteLine("Record not found...")
+
+
+        Console.ReadKey()
+
+    End Sub
+
+Task 1.3 Pseudocode
+
+DECLARE MemberID : INTEGER
+DECLARE Name : STRING
+DECLARE isFound : BOOLEAN
+DECLARE searchMemberID : INTEGER
+isFound = FALSE
+
+INPUT "Enter Member ID to serch :", searchMemberID 
+OPENFILE "MemberRec.txt" FOR INPUT
+
+WHILE NOT EOF("MemberRec.txt") AND isFound=FALSE
+  READFILE "MemberRec.txt", MemberID
+  READFILE "MemberRec.txt", Name
+
+  IF MemberID = searchMemberID 
+    THEN
+      isFound = TRUE
+
+      OUTPUT "Roll number: ", MemberID
+      OUTPUT "Student name: ", Name
+  ENDIF
+ENDWHILE
+
+CLOSEFILE "MemberRec.txt"
+
+IF isFound = FALSE THEN OUTPUT "Not found..."
+
+Task-1.4 Visual Basic
+Sub Main()
+
+        Dim MemberId As Integer
+        Dim Name As String
+        Dim moreRecs As Char
+ 	moreRecs = "Y"
+
+        FileOpen(1, "G:\PracticeFile\sRec.txt", OpenMode.appending)
+
+        Do
+            Console.Write("Enter MemberId :")
+            MemberId = Console.ReadLine
+
+            Console.Write("Enter Member Name :")
+            Name = Console.ReadLine
+
+            WriteLine(1, MemberId)
+        WriteLine(1, Name)
+
+            Console.Write("Want to ad next record? Y/N: ")
+            moreRecs = Console.ReadLine
+        Loop Until moreRecs = N OR moreRecs = n
+
+        FileClose(1)
+
+        Console.ReadKey()
+
+    End Sub
+
+Task 1.4 Pseudocode
+
+DECLARE MemberID : INTEGER
+DECLARE NAME : STRING
+DECLARE moreRecs : BOOLEAN
+
+MemberID = 0
+Name = ""
+more = FALSE
+
+OPENFILE "MemberRec.txt" FOR APPEND
+REPEAT
+    OUTPUT "Enter Member ID: "
+    INPUT MemberID
+
+    OUTPUT "Enter Member Name: "
+    INPUT Name
+
+    WRITEFILE "MemberRec.txt", MemberID
+    WRITEFILE "MemberRec.txt", Name
+
+    OUTPUT "Do you want to add more records? (Y/N)" 
+    INPUT moreRecs
+UNTIL moreRecs = 'N' OR moreRecs = 'n' 
+CLOSEFILE "MemberRec.txt"
+
+Task 1.5 Visual Basic
+Sub Main()
+
+        Dim MemberID As Integer
+        Dim Name, Number As String
+        Dim Membershipdate As Date
+
+
+            FileOpen(1, "G:\PracticeFile\MemberRec.txt", OpenMode.Input)
+        FileOpen(2, "G:\PracticeFile\NewMemberRec.txt", OpenMode.Output)
+
+        While Not EOF(1)
+            Input(1, MemberID)
+                Input(1, Name)
+
+            Console.WriteLine("Member ID: " & MemberID)
+            Console.WriteLine("Member Name: " & Name)
+
+            Console.Write("Enter Phone Number: ")
+                Number = Console.ReadLine
+                Do Until Len(Number) = 11
+                    If Len(Number) <> 11 Then
+                        Console.Write("In Correct Number Length, Please Re-Enter: ")
+                        Number = Console.ReadLine
+                    End If
+                Loop
+                Console.Write("Enter Start Of Membership Date: ")
+                Membershipdate = Console.ReadLine
+                WriteLine(2, MemberID)
+                WriteLine(2, Name)
+                WriteLine(2, Number)
+            WriteLine(2, Membershipdate)
+
+        End While
+        FileClose(1)
+        FileClose(2)
+
+        Console.ReadKey()
+
+    End Sub
+
+Task 1.5 Pseudocode
+DECLARE MemberID : INTEGER
+DECLARE Name : STRING
+DECLARE Number : STRING
+DECLARE Membershipdate : DATE  
+
+OPENFILE "MemberRec.txt" FOR INPUT
+OPENFILE "NewMeberRec.txt" FOR OUTPUT
+
+WHILE NOT EOF("sRec.txt") 
+  READFILE "MemberRec.txt", MemberID
+  READFILE "MemberRec.txt", Name
+  READFILE "MemberRec.txt", Number
+
+  WRITEFILE "NewMeberRec.txt", MemberID
+  WRITEFILE "NewMeberRec.txt", Name
+  WRITEFILE "NewMeberRec.txt", Number
+
+ENDWHILE
+CLOSEFILE "MeberRec.txt"
+CLOSEFILE "NewMeberRec.txt"
